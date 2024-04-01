@@ -27,8 +27,19 @@ private void OnTriggerEnter2D(Collider2D nextarea)
     if(nextarea.tag == "Player")
         {
             Player.instance.transitionName = transitionAreaName;
-            SceneManager.LoadScene(sceneToLoad);
+
+            MenuManager.instance.FadeImage();
+
+            StartCoroutine(LoadSceneCoroutine());
+
            // Debug.Log("Player entered the exit zone");
          }
     }
+
+    IEnumerator LoadSceneCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
 }

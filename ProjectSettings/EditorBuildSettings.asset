@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mountains.unity
     guid: 97f3675be2e1d8047869a9693a84a244
+  - enabled: 1
+    path: Assets/Scenes/TownB.unity
+    guid: 58af529c947ed2548a5f30549ff523fb
+  - enabled: 1
+    path: Assets/Scenes/TownC.unity
+    guid: 3291d260f4fde194abed28b572b911dc
   m_configObjects: {}

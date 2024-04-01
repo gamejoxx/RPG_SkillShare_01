@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public string transitionName;
 
+    private Vector3 bottomLeftEdge;
+    private Vector3 topRightEdge;
 
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
     }
 
     // Update is called once per frame
@@ -46,6 +49,17 @@ public class Player : MonoBehaviour
             playerAnimator.SetFloat("lastY", verticalMovement);
         }
 
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, bottomLeftEdge.x, topRightEdge.x),
+            Mathf.Clamp(transform.position.y, bottomLeftEdge.y, topRightEdge.y),
+            transform.position.z);
 
     }
+
+    public void SetLimits(Vector3 bottomLeft, Vector3 topRight)
+    {
+        bottomLeftEdge = bottomLeft;
+        topRightEdge = topRight;
+    }
+
 }

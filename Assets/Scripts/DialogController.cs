@@ -57,6 +57,7 @@ public class DialogController : MonoBehaviour
                 {
                     dialogBox.SetActive(false);
                     dialogJustStarted = true; // Reset for the next time dialog is activated.
+                    Player.instance.deactivateMovement = false;
                 }
                 else
                 {
@@ -76,6 +77,7 @@ public class DialogController : MonoBehaviour
         dialogBox.SetActive(true);
 
         dialogJustStarted = true;
+        Player.instance.deactivateMovement = true;
       
     }
 

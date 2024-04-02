@@ -12606,10 +12606,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - uno
-  - dos
-  - tres
-  - quatro!!
+  - '#Healer'
+  - You Want Some?
+  - '#Jimmy'
+  - yea
+  - heal me
+  - '#Healer'
+  - oook buddy
+  - '#Jimmy'
+  - Thanks Buddy!
 --- !u!114 &1061879227 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4782427017374963028, guid: 93c5801e270f86446948a579fdaec124, type: 3}

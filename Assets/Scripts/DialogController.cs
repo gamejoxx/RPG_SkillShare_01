@@ -61,6 +61,7 @@ public class DialogController : MonoBehaviour
                 }
                 else
                 {
+                    CheckForName();
                     dialogText.text = dialogLines[currentLine]; // Update the dialog text.
                 }
             }
@@ -71,14 +72,24 @@ public class DialogController : MonoBehaviour
     public void ActivateDialog(string[] newLinesToUse)
     {
         dialogLines = newLinesToUse;
-
         currentLine = 0;
+        
+        CheckForName();
         dialogText.text = dialogLines[currentLine];
         dialogBox.SetActive(true);
 
         dialogJustStarted = true;
         Player.instance.deactivateMovement = true;
       
+    }
+
+    void CheckForName()
+    {
+        if (dialogLines[currentLine].StartsWith("#"))
+        {
+            nameText.text = dialogLines[currentLine].Replace("#", "");
+            currentLine++;
+        }
     }
 
     public bool IsDialogActive()

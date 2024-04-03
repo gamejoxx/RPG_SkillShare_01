@@ -51,6 +51,7 @@ public class DialogController : MonoBehaviour
                 else // If the dialog just started, don't advance to the next line yet, but clear the flag.
                 {
                     dialogJustStarted = false;
+                    GameManager.instance.dialogBoxOpened = true;
                 }
 
                 if (currentLine >= dialogLines.Length) // Check if we've gone through all lines.
@@ -58,6 +59,7 @@ public class DialogController : MonoBehaviour
                     dialogBox.SetActive(false);
                     dialogJustStarted = true; // Reset for the next time dialog is activated.
                     Player.instance.deactivateMovement = false;
+                    GameManager.instance.dialogBoxOpened = false;
                 }
                 else
                 {

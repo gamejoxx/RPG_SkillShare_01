@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] string playerName;
+    public string playerName;
+    public Sprite characterImage;
+
 
     [SerializeField] int maxLevel = 20;
-    [SerializeField] int playerLevel = 1;
-    [SerializeField] int currentXP;
-    [SerializeField] int[] xpForEachLevel;
+    public int playerLevel = 1;
+    public int currentXP;
+    public int[] xpForNextLevel;
     [SerializeField] int baseLevelXP;
 
-    [SerializeField] int maxHP = 100;
-    [SerializeField] int currentHP;
+    public int maxHP = 100;
+    public int currentHP;
 
-    [SerializeField] int maxMana = 30;
-    [SerializeField] int currentMana;
+    public int maxMana = 30;
+    public int currentMana;
 
     [SerializeField] int strength;
     [SerializeField] int defense;
@@ -25,12 +28,12 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        xpForEachLevel = new int[maxLevel];
-        xpForEachLevel[1] = baseLevelXP;
+        xpForNextLevel = new int[maxLevel];
+        xpForNextLevel[1] = baseLevelXP;
 
-        for(int i = 2; i < xpForEachLevel.Length; i++)
+        for(int i = 2; i < xpForNextLevel.Length; i++)
         {
-            xpForEachLevel[i] = ((int)(0.02f * i * i * i + 3.06f * i * i + 105.6f * i));
+            xpForNextLevel[i] = ((int)(0.02f * i * i * i + 3.06f * i * i + 105.6f * i));
             
         }
 
@@ -39,6 +42,42 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            AddXP(100);
+        }
     }
+
+    public void AddXP(int amountOfXp)
+    {
+        // Add the amount of XP to the player's current XP
+        currentXP += amountOfXp;
+        if(currentXP >= xpForNextLevel[playerLevel])
+        {
+            currentXP -= xpForNextLevel[playerLevel];
+            playerLevel++;
+            
+            // Increase the player's strength and defense every other level
+            if(playerLevel % 2 == 0)
+            {
+                strength++;
+            }
+            else
+            {
+                defense++;
+            }
+
+           // Increase the player's max HP and mana when they level up
+            maxHP = Mathf.FloorToInt(maxHP * 1.18f);
+            currentHP = maxHP;
+
+            maxMana = Mathf.FloorToInt(maxMana * 1.06f);
+            currentMana = maxMana;
+                  
+
+
+        }
+    }
+
+
 }

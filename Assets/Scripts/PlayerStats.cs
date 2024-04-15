@@ -21,8 +21,8 @@ public class PlayerStats : MonoBehaviour
     public int maxMana = 30;
     public int currentMana;
 
-    [SerializeField] int strength;
-    [SerializeField] int defense;
+    public int strength;
+    public int defense;
 
 
     // Start is called before the first frame update

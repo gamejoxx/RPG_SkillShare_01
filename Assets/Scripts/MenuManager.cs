@@ -17,10 +17,12 @@ public class MenuManager : MonoBehaviour
     private PlayerStats[] playerStats;
     [SerializeField] TextMeshProUGUI[] nameText, hpText, manaText, currentXPText, xpText;
     [SerializeField] Slider[] xpSlider;
-
-    [SerializeField] Image[] chracterImage; 
-
+    [SerializeField] Image[] chracterImage;
     [SerializeField] GameObject[] characterPanel;
+
+    [SerializeField] TextMeshProUGUI[] statName, statHP, statMana, statStr, statDef;
+    [SerializeField] Image characterStatImage;
+
 
 
     private void Start()
@@ -76,8 +78,37 @@ public class MenuManager : MonoBehaviour
         for(int i = 0; i < playerStats.Length; i++)
         {
             statsButton[i].SetActive(true);
+
+            statsButton[i].GetComponentInChildren<TextMeshProUGUI>().text = playerStats[i].playerName;
+
         }
+
+        StatsMenuUpdate(0);
+
     }
+
+    public void StatsMenuUpdate(int playerSelectedNumber)
+    {
+        //// Check if the playerSelectedNumber is within bounds of the playerStats array
+        //if (playerSelectedNumber < 0 || playerSelectedNumber >= playerStats.Length)
+        //{
+        //    Debug.LogError("Player selected number is out of range.");
+        //    return; // Exit the method to prevent accessing an invalid array index
+        //}
+
+        PlayerStats playerSelected = playerStats[playerSelectedNumber];
+
+        statName[0].text = playerSelected.playerName;
+
+        statHP[0].text = playerSelected.currentHP.ToString() + "/" + playerSelected.maxHP;
+        statMana[0].text = playerSelected.currentMana.ToString() + "/" + playerSelected.maxMana;
+
+        statStr[0].text = playerSelected.strength.ToString();
+        statDef[0].text = playerSelected.defense.ToString();
+
+        characterStatImage.sprite = playerSelected.characterImage;
+    }
+
 
 
     public void QuitGame()

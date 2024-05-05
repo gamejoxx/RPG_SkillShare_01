@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
     [SerializeField] PlayerStats[] playerStats;
 
     public bool gameMenuOpen, dialogBoxOpened;

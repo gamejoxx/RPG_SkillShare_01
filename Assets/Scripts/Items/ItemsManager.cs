@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class ItemsManager : MonoBehaviour
 {
-
     public enum ItemType { Item, Weapon, Armor }
     public ItemType itemType;
 
     public string itemName, itemDescription;
     public int valueInCoins;
     public Sprite itemsImage;
-
 
     public enum Affecttype { HP, Mana }
     public int amountOfAffect;

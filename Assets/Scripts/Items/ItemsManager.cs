@@ -40,7 +40,7 @@ public class ItemsManager : MonoBehaviour
         {
             // print("Player picked up " + itemName);
             Inventory.instance.AddItems(this);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

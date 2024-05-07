@@ -28,6 +28,8 @@ public class MenuManager : MonoBehaviour
 
     public TextMeshProUGUI[] itemName, itemDescription;
 
+    public ItemsManager activeItem;
+
 
     private void Start()
     {
@@ -138,6 +140,13 @@ public class MenuManager : MonoBehaviour
         }
               
     }
+
+    public void DiscardItem()
+    {
+
+        print(activeItem.itemName);
+    }
+
 
     public void QuitGame()
     {

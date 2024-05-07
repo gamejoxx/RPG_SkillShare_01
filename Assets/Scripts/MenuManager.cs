@@ -26,6 +26,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject itemSlotContainer;
     [SerializeField] Transform itemSlotContainerParent;
 
+    public TextMeshProUGUI[] itemName, itemDescription;
+
+
     private void Start()
     {
         instance = this;
@@ -126,14 +129,12 @@ public class MenuManager : MonoBehaviour
             TextMeshProUGUI itemsAmountText = itemSlot.Find("Amount Text").GetComponent<TextMeshProUGUI>();
 
             if (item.amount > 1)
-            {
                 itemsAmountText.text = item.amount.ToString();
-            }
             else
-            {
-                itemsAmountText.text = "";
-            }
+            itemsAmountText.text = "";
 
+            itemSlot.GetComponent<ItemButton>().itemOnButton = item;
+            
         }
               
     }

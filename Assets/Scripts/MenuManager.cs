@@ -95,13 +95,6 @@ public class MenuManager : MonoBehaviour
 
     public void StatsMenuUpdate(int playerSelectedNumber)
     {
-        //// Check if the playerSelectedNumber is within bounds of the playerStats array
-        //if (playerSelectedNumber < 0 || playerSelectedNumber >= playerStats.Length)
-        //{
-        //    Debug.LogError("Player selected number is out of range.");
-        //    return; // Exit the method to prevent accessing an invalid array index
-        //}
-
         PlayerStats playerSelected = playerStats[playerSelectedNumber];
 
         statName[0].text = playerSelected.playerName;
@@ -143,9 +136,14 @@ public class MenuManager : MonoBehaviour
 
     public void DiscardItem()
     {
-
-        print(activeItem.itemName);
+        if (activeItem != null)
+        {
+            Inventory.instance.RemoveItem(activeItem);
+            UpdatesItemsInventory();  // Refresh inventory display after item is discarded
+            activeItem = null;         // Clear the active item
+        }
     }
+
 
 
     public void QuitGame()

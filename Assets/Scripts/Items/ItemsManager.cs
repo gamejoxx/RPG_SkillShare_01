@@ -38,10 +38,13 @@ public class ItemsManager : MonoBehaviour
     {
        if(collision.CompareTag("Player"))
         {
-            // print("Player picked up " + itemName);
             Inventory.instance.AddItems(this);
-            gameObject.SetActive(false);
+            SelfDestroy();
         }
     }
 
+    public void SelfDestroy()
+    {
+        gameObject.SetActive(false);
+    }
 }

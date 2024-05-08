@@ -8811,7 +8811,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1680831150}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 686461870}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1680831150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9398,7 +9410,7 @@ MonoBehaviour:
   xpForNextLevel: 
   baseLevelXP: 100
   maxHP: 100
-  currentHP: 100
+  currentHP: 20
   maxMana: 30
   currentMana: 10
   strength: 20

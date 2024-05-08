@@ -144,6 +144,12 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void UseItem()
+    {
+        activeItem.UsreItem();
+        DiscardItem();
+
+    }
 
 
     public void QuitGame()

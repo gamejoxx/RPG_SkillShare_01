@@ -21,18 +21,22 @@ public class ItemsManager : MonoBehaviour
     public bool isStackable;
     public int amount;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void UsreItem()
     {
-        
+        if (itemType == ItemType.Item)
+        {
+            if(affectType == Affecttype.HP)
+            {
+                PlayerStats.instance.AddHP(amountOfAffect);
+            }
+            else if(affectType == Affecttype.Mana)
+            {
+                PlayerStats.instance.AddMana(amountOfAffect);
+            }
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

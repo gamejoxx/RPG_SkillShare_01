@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats instance;
+
     public string playerName;
     public Sprite characterImage;
 
@@ -28,6 +30,8 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         xpForNextLevel = new int[maxLevel];
         xpForNextLevel[1] = baseLevelXP;
 
@@ -79,5 +83,22 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void AddHP(int amountHPToAdd)
+    {
+        currentHP += amountHPToAdd;
+        if(currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
+    }
+
+    public void AddMana(int amountManaToAdd)
+    {
+        currentMana += amountManaToAdd;
+        if(currentMana > maxMana)
+        {
+            currentMana = maxMana;
+        }
+    }
 
 }

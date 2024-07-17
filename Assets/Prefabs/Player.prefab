@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7051045788041981434}
   - component: {fileID: 3818124368217099139}
   - component: {fileID: 70018138725978808}
+  - component: {fileID: -1198281801869240186}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -166,7 +167,7 @@ MonoBehaviour:
   PlayerRigidBody: {fileID: 7051045788041981434}
   playerAnimator: {fileID: 70018138725978808}
   transitionName: 
-  tilemap: {fileID: 0}
+  deactivateMovement: 0
 --- !u!95 &70018138725978808
 Animator:
   serializedVersion: 5
@@ -188,3 +189,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1198281801869240186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156029702718153217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21fc1dd5667d514b8d47496d5d1fdec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
+  characterImage: {fileID: 0}
+  maxLevel: 20
+  playerLevel: 1
+  currentXP: 0
+  xpForNextLevel: 
+  baseLevelXP: 0
+  maxHP: 100
+  currentHP: 0
+  maxMana: 30
+  currentMana: 0
+  strength: 0
+  defense: 0

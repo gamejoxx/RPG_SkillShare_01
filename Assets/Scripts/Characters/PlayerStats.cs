@@ -76,8 +76,7 @@ public class PlayerStats : MonoBehaviour
             currentHP = maxHP;
 
             maxMana = Mathf.FloorToInt(maxMana * 1.06f);
-            currentMana = maxMana;
-                  
+            currentMana = maxMana;              
 
 
         }
